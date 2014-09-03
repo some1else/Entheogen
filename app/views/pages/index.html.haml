@@ -1,1 +1,107 @@
-Hello worl
+
+%nav#nav{'data-0' => 'position: !absolute; bottom: !0px; top: auto;', 'data-top-top' => 'position: !fixed; bottom: !auto; top: !0px; z-index: 9999'}
+#map
+#crosshairs
+#app
+#container
+#music
+    %div{:id => 'player_jupiter', :class => 'ui360 ui360-vis ui360-init'}
+        %a{:href => "/mp3/entheogen-jupiter.mp3"}
+    %div{:id => 'player_callisto', :class => 'ui360 ui360-vis ui360-init'}
+        %a{:href => "/mp3/entheogen-callisto.mp3"}
+    %div{:id => 'player_europa', :class => 'ui360 ui360-vis ui360-init'}
+        %a{:href => "/mp3/entheogen-europa.mp3"}
+    %div{:id => 'player_io', :class => 'ui360 ui360-vis ui360-init'}
+        %a{:href => "/mp3/entheogen-io.mp3"}
+    %div{:id => 'player_ganymede', :class => 'ui360 ui360-vis ui360-init'}
+        %a{:href => "/mp3/entheogen-ganymede.mp3"}
+    %div{:id => 'player_venus', :class => 'ui360 ui360-vis ui360-init'}
+        %a{:href => "/mp3/entheogen-venus.mp3"}
+    %div{:id => 'player_string-of-pearls', :class => 'ui360 ui360-vis ui360-init'}
+        %a{:href => "/mp3/entheogen-string-of-pearls.mp3"}
+
+#secondary
+    %section#events
+        %h2 Events
+        %h3 Upcoming
+        
+        - Event.upcoming.each do |event|
+            %article.featured
+                %h4= event.name
+                %h5 Date &amp; venue:
+                %p
+                    = event.begins_at
+                    at
+                    = event.venue
+                - unless event.lineup.empty?
+                    %h5 Lineup
+                    %p= event.lineup
+                - unless event.fb_link.empty?
+                    %p= link_to "Facebook", event.fb_link
+
+        / %article.featured
+        /     %h4 Release party
+        /     %h5 Date &amp; venue:
+        /     %p Saturday, May 11th at eMCe plac, Velenje
+        /     %h5 Lineup:
+        /     %p DIGILESPI, ENTHEOGEN
+
+    %section#materials
+        %h2 Materials
+
+        .cd{'data-bottom-top' => 'opacity: 0; transform[sqrt]: translateY(-8.00em);', 'data-center-center' => 'opacity: 1; transform[sqrt]: translateY(0.00em);'}
+            %a{:href => 'http://entheogenband.bandcamp.com', :target => 'blank'}
+                / %img{:src => '/img/cd-preview-render.png'}
+    
+    %section#visuals
+        %h2 Visuals
+
+        / %ul
+        /     %li
+        /         %img{:src => '/fotke/74207_10151636057348408_865466797_n.jpg'}
+        /     %li
+        /         %img{:src => '/fotke/74270_10151636057258408_1116026251_n.jpg'}
+        /     %li
+        /         %img{:src => '/fotke/164984_10151636057173408_1503653135_n.jpg'}
+        /     %li
+        /         %img{:src => '/fotke/284842_10151220181428408_2081386054_n.jpg'}
+        /     %li
+        /         %img{:src => '/fotke/399757_10151220181318408_704440973_n.jpg'}
+        /     %li
+        /         %img{:src => '/fotke/543662_10151220181878408_1506350779_n.jpg'}
+        /     %li
+        /         %img{:src => '/fotke/778705_10151490490668408_811284531_o.jpg'}
+        /     %li
+        /         %img{:src => '/fotke/798174_10151490491698408_557304071_o.jpg'}
+        /     %li
+        /         %img{:src => '/fotke/843038_10151490489538408_442238563_o.jpg'}
+        /     %li
+        /         %img{:src => '/fotke/819311_10151490492438408_208530920_o.jpg'}
+
+
+    %section#entheogenesis
+        %h2 Entheogenesis
+            
+        .surf
+            %p Approximately four years ago two planetoids - one from a stoner rock group called MG Pistol Rock, the other from a math/post rock group called Imakandi - collided and melted all but their metal core. The result is Entheogen - a homogenous mixture of math/sludge with a pinch of post- and stoner rock. After years of evolution, erosion and gigabytes of organized noise enough matter had broken away from the moons to create a debut album, scheduled to see its first sunrise in the first half of 2013. 
+
+            %p The creative process converted the resulting friction into energy for Moons of Jupiter - a thematic album dedicated to the STS-34 mission - the spacecraft Galileo (named after the first observer of Jupiter's moons, described in his Siderius Nuncius from 1610) that was launched on its path from Earth to the gas giant in 1989. The music represents an attempt of a sonic rendering of the mission and is therefore different from phase to phase. The basis remains instrumental math/sludge with influences from bands like Neurosis, Meshuggah, Pelican, Alice in Chains and the like.
+            
+            %p Released 11 May 2013 
+            %p Matic Kadliček, Sergej Žižek, Matej Voglar, Matija Bencik
+
+%footer{:style => 'display: none'}
+    .event-horizon
+        Next Event @ Future Venue
+
+    .social
+        .youtube
+            YouTube
+        .facebook
+            Facebook
+        .reverb-nation
+            Reverb Nation
+
+    .contact
+        %a{:href => 'mailto:info@entheogen.si'} info@entheogen.si
+
