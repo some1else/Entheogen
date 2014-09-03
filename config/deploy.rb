@@ -10,7 +10,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@gitlab.com:srdjan.prodanovic/entheogen_rails.git"
+set :repository, "git@gitlab.com:srdjan.prodanovic/entheogen.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
