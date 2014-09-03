@@ -213,11 +213,14 @@ DEPENDENCIES
   capistrano (~> 2.15.5)
   coffee-rails (~> 4.0.0)
   devise
+  formtastic
   haml-rails
+  inherited_resources
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.1.4)
   rails_12factor
+  ransack
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
