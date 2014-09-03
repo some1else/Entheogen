@@ -1,0 +1,246 @@
+/* General warning: Beta-ish. Code could be a bit cleaner.
+
+.ui360, .sm2-360ui
+  /* canvas container
+  position: relative
+
+.ui360
+  min-width: 50px
+  /* should always be at least this.
+  min-height: 50px
+
+.sm2-360ui
+  min-width: 50px
+  /* should always be at least this.
+  min-height: 50px
+  width: 50px
+  height: 50px
+
+.ui360
+  vertical-align: middle
+  *
+    vertical-align: middle
+
+.sm2-360ui
+  position: relative
+  display: inline-block
+  /* firefox 3 et al
+  float: left
+  /* IE 6+7, firefox 2 needs this, inline-block would work with fx3 and others
+  *display: inline
+  /*
+   *clear:left;
+  &.sm2_playing, &.sm2_paused
+    /* bump on top when active
+    z-index: 10
+
+.ui360
+  a
+    /* .sm2_link class added to playable links by SM2
+    float: left
+    display: inline
+    position: relative
+    color: #000
+    text-decoration: none
+    left: 3px
+    /* slight spacing on left UI
+    top: 18px
+    /* vertical align
+    text-indent: 50px
+    /* make room for UI at left
+    &.sm2_link
+      /* SM2 has now started
+      text-indent: 0px
+      /* UI now in place.
+    padding: 2px
+    margin-left: -2px
+    margin-top: -2px
+    &:hover, &:focus
+      padding: 2px
+      margin-left: -2px
+      margin-top: -2px
+    &:hover, &:focus
+      background: #eee
+      border-radius: 3px
+      outline: none
+  .sm2-canvas
+    position: absolute
+    left: 0px
+    top: 0px
+  .sm2-timing
+    position: absolute
+    display: block
+    left: 0px
+    top: 0px
+    width: 100%
+    height: 100%
+    margin: 0px
+    font: 11px "helvetica neue",helvetica,monaco,lucida,terminal,monospace
+    color: #666
+    text-align: center
+    line-height: 50px
+    &.alignTweak
+      text-indent: 1px
+      /* devious center-alignment tweak for Safari (might break things for others.)
+  .sm2-cover
+    position: absolute
+    left: 0px
+    top: 0px
+    width: 100%
+    height: 100%
+    z-index: 2
+    display: none
+    background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)
+    /* old-skool bug: IE 9 won't catch mouse events otherwise. /smash
+  .sm2-360btn
+    position: absolute
+    display: block
+    top: 50%
+    left: 50%
+    /*
+     *width:22px;
+     *height:22px;
+     *margin-left:-11px;
+     *margin-top:-11px;
+    /* by default, cover whole space. make smaller when playing.
+    width: 50px
+    height: 50px
+    margin-left: -25px
+    margin-top: -25px
+    border-radius: 25px
+    cursor: pointer
+    z-index: 3
+  .sm2-360data
+    display: inline-block
+    font-family: helvetica
+
+.sm2-inline-block .ui360 .sm2-360btn
+  /* smaller clickable button, in center
+  width: 22px
+  height: 22px
+  margin-left: -11px
+  margin-top: -11px
+
+.ui360
+  .sm2-360ui
+    &.sm2_playing .sm2-360btn, &.sm2_paused .sm2-360btn
+      /* smaller clickable button, in center
+      width: 22px
+      height: 22px
+      margin-left: -11px
+      margin-top: -11px
+    &.sm2_playing .sm2-cover, &.sm2_paused .sm2-cover
+      display: block
+  background: transparent url(360-button-play.png) no-reoeat
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAABoUlEQVR42sWVu2oCQRhGU/s8gpVYJeQJNkZSbiH4QNuLlQZS21sJayGYaOEFVFDxNiremj9zig2uzk5YQpKFg8PMd75ZZle9E5Ff4e+Ll8tlQuNoPI2vUcCYOdbIxCmm9F5T0YgNMmS/LebSwWdNa7VayXq9ls1mI9vtVna7nQBj5lgjQxYHN7KY3QkiUbDf7+V4PMrpdArBHGtkyOJc3/n1mVaUUl+F5/PZSrABDi4dpmKH3QkixQEHlw5TsccZmsRCoSD1et1ajkuHqdg/HA5GKZPJCOTzeanVasYMLh2mYsXDIGAoDuG6rlSr1WCdBxrcsTIWazgrQiHS6bSRYJ3XDzeq2O/3+9Ltdm9IpVIhstmslEqlUAY36ii8ZrMpjUbjhmQyKeA4jhSLRWMGN+rhOZ1Oh8ANuVxOyuUy40hwo163RK/XeyPQbrdjgYNr/ILAYDB41Gf1wZnFAQfX+iM0HA5fxuPx+2g0Ej22QoYsDq61mGsymTxMp9NX/Sk2yJDFsRZfXpzXbDZ7WiwW3nw+9zUKGDPHGpkL5V//mn7OJyJZApyzeUS5AAAAAElFTkSuQmCC)
+  *background-image: url(360-button-play.png)
+  background-repeat: no-repeat
+  .sm2-360btn-default, .sm2-360ui.sm2_paused .sm2-360btn
+    background: transparent url(360-button-play.png) no-reoeat
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAABoUlEQVR42sWVu2oCQRhGU/s8gpVYJeQJNkZSbiH4QNuLlQZS21sJayGYaOEFVFDxNiremj9zig2uzk5YQpKFg8PMd75ZZle9E5Ff4e+Ll8tlQuNoPI2vUcCYOdbIxCmm9F5T0YgNMmS/LebSwWdNa7VayXq9ls1mI9vtVna7nQBj5lgjQxYHN7KY3QkiUbDf7+V4PMrpdArBHGtkyOJc3/n1mVaUUl+F5/PZSrABDi4dpmKH3QkixQEHlw5TsccZmsRCoSD1et1ajkuHqdg/HA5GKZPJCOTzeanVasYMLh2mYsXDIGAoDuG6rlSr1WCdBxrcsTIWazgrQiHS6bSRYJ3XDzeq2O/3+9Ltdm9IpVIhstmslEqlUAY36ii8ZrMpjUbjhmQyKeA4jhSLRWMGN+rhOZ1Oh8ANuVxOyuUy40hwo163RK/XeyPQbrdjgYNr/ILAYDB41Gf1wZnFAQfX+iM0HA5fxuPx+2g0Ej22QoYsDq61mGsymTxMp9NX/Sk2yJDFsRZfXpzXbDZ7WiwW3nw+9zUKGDPHGpkL5V//mn7OJyJZApyzeUS5AAAAAElFTkSuQmCC)
+    *background-image: url(360-button-play.png)
+    background-repeat: no-repeat
+  /*
+   *"fake" button shown before SM2 has started, non-JS/non-SM2 case etc.
+   *background image will be removed via JS, in threeSixyPlayer.init()
+  background-position: 14px 50%
+  _background: transparent url(360-button-play.gif) no-repeat 14px 50%
+  /* IE 6-only: special crap GIF
+  .sm2-360btn-default, .sm2-360ui.sm2_paused .sm2-360btn
+    background-position: 50% 50%
+    _background: transparent url(360-button-play.gif) no-repeat 50% 50%
+    /* IE 6-only: special crap GIF
+  .sm2-360btn-default, .sm2-360ui.sm2_paused .sm2-360btn
+    cursor: pointer
+  .sm2-360btn-default:hover
+    background: transparent url(360-button-play-light.png) no-repeat 50% 50%
+    _background: transparent url(360-button-play.gif) no-repeat 50% 50%
+    cursor: pointer
+  .sm2-360ui
+    &.sm2_paused .sm2-360btn:hover
+      background: transparent url(360-button-play-light.png) no-repeat 50% 50%
+      _background: transparent url(360-button-play.gif) no-repeat 50% 50%
+      cursor: pointer
+    &.sm2_playing .sm2-360btn:hover
+      background: transparent url(360-button-pause-light.png) no-repeat 50% 50%
+      _background: transparent url(360-button-pause-light.gif) no-repeat 50% 50%
+      cursor: pointer
+  .sm2-360btn-playing:hover
+    background: transparent url(360-button-pause-light.png) no-repeat 50% 50%
+    _background: transparent url(360-button-pause-light.gif) no-repeat 50% 50%
+    cursor: pointer
+  .sm2-360ui
+    &.sm2_playing .sm2-timing
+      visibility: visible
+    &.sm2_buffering .sm2-timing, .sm2-timing, .sm2-360btn:hover + .sm2-timing, &.sm2_paused .sm2-timing
+      visibility: hidden
+    &.sm2_dragging
+      .sm2-timing, .sm2-360btn:hover + .sm2-timing
+        /* paused + dragging
+        visibility: visible
+    &.sm2_playing .sm2-360btn
+      /* don't let pause button show on hover when dragging (or paused and dragging)
+      background: transparent
+      cursor: auto
+    &.sm2_dragging
+      .sm2-360btn
+        /* don't let pause button show on hover when dragging (or paused and dragging)
+        background: transparent
+        cursor: auto
+        &:hover
+          /* don't let pause button show on hover when dragging (or paused and dragging)
+          background: transparent
+          cursor: auto
+      .sm2-360btn-playing:hover
+        /* don't let pause button show on hover when dragging (or paused and dragging)
+        background: transparent
+        cursor: auto
+    &.sm2_buffering .sm2-360btn
+      background: transparent url(icon_loading_spinner.gif) no-repeat 50% 50%
+      opacity: 0.5
+      visibility: visible
+      &:hover
+        background: transparent url(icon_loading_spinner.gif) no-repeat 50% 50%
+        opacity: 0.5
+        visibility: visible
+
+/* this could be optimized a fair bit.
+
+/* inline list style
+
+.sm2-inline-list .ui360, .sm2-inline-block .ui360
+  position: relative
+  display: inline-block
+  float: left
+  _display: inline
+  margin-bottom: -15px
+
+.sm2-inline-list .ui360
+  /* inline player: minor tweak, tighten spacing
+  margin-right: -2px
+
+.sm2-inline-block .ui360
+  margin-right: 8px
+
+.sm2-inline-list .ui360 a
+  display: none
+
+/* annotations
+
+ul.ui360playlist
+  list-style-type: none
+  margin: 0px
+  padding: 0px
+  li
+    margin: 0px
+    padding: 0px
+
+div.ui360
+  div.metadata
+    display: none
+  a span.metadata
+    /* name of track, note etc.
+    vertical-align: baseline
+    *
+      /* name of track, note etc.
+      vertical-align: baseline

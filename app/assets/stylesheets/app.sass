@@ -1,0 +1,587 @@
+$gold: #ffc03f
+$gray: #606060
+
+// @import compass/reset
+
+@import lib/responsive_grid_system/all
+
+// @import helpers
+// @import animations
+@import old_typography
+
+.normal-info-font, .big-info-font, .huge-info-font
+  font-family: $lato
+  font-weight: 300
+
+@media (max-width: 640px)
+  +grid(handheld, 100%, 24, 5%)
+  +type(huge, 12px)
+
+  .huge-info-font
+    font-size: 48px
+    line-height: 64px
+  .big-info-font
+    font-size: 16px
+    line-height: 24px
+  .normal-info-font
+    font-size: 12px
+    line-height: 18px
+
+@media (min-width: 640px) and (max-width: 960px)
+  +grid(tablet, 620px, 24, 20px)
+  +type(huge, 14px)
+
+  .huge-info-font
+    font-size: 48px
+    line-height: 64px
+  .big-info-font
+    font-size: 16px
+    line-height: 24px
+  .normal-info-font
+    font-size: 12px
+    line-height: 18px
+
+@media (min-width: 960px) and (max-width: 1440px)
+  +grid(screen, 980px, 24, 30px)
+  +type(huge, 14px)
+
+  .huge-info-font
+    font-size: 72px
+    line-height: 128px
+  .big-info-font
+    font-size: 24px
+    line-height: 48px
+  .normal-info-font
+    font-size: 18px
+    line-height: 24px
+
+@media (min-width: 1440px)
+  +grid(huge, 1140px, 24, 40px)
+  +type(huge, 17px)
+
+  .huge-info-font
+    font-size: 72px
+    line-height: 128px
+  .big-info-font
+    font-size: 24px
+    line-height: 48px
+  .normal-info-font
+    font-size: 18px
+    line-height: 24px
+
+
+
+=font($kind, $size)
+  @extend .#{$size}-#{$kind}-font
+
+ul
+  padding-left: 0 !important
+
+body
+  background: #000
+  // line-height: 19px
+  // font-smooth: always
+  // -webkit-text-stroke: 1px transparent
+  // -moz-font-smoothing: antialiased
+  -webkit-font-smoothing: subpixel-antialiased !important
+  font-smoothing: subpixel-antialiased !important
+  text-rendering: optimizeLegibility
+  margin: 0
+  padding: 0
+  background: #3a3a3a
+ 
+#nav
+  position: absolute
+  width: 100%
+  z-index: 1024
+  height: 60px
+  // background: rgba(0,0,8,.66)
+  background: black
+  bottom: 0
+  padding-top: 20px
+
+  a
+    color: white
+    text-decoration: none
+  
+  ul, ul.fresh
+    list-style: none
+    padding: 0
+    margin: 0
+    li
+      a
+        display: block
+        font-size: 18px
+        line-height: 40px
+        +transition(color, .4s)
+      a:hover
+        +animation(blink .1s ease-in-out 0 infinite alternate)
+      a.active
+        color: $gold
+      a.active:hover
+        +animation(none)
+
+  ul.left
+    float: left
+    padding-left: 15px
+    li
+      float: left
+      padding:
+        left: 1em
+        right: 1em
+    a
+      font-family: $metro
+      font-weight: 500
+  .right
+    float: right
+    +row(6, tablet, screen)
+    +row(4, huge)
+    h1
+      margin:
+        top: 0
+        bottom: 0
+      +col(6, tablet, screen)
+      +row(4, huge)
+      a
+        font-family: $montserrat
+        font-size: 24px
+        font-weight: 300
+        line-height: 40px
+        text-transform: uppercase
+
+    .content-submenu, .social-submenu
+      pointer-events: none
+      opacity: 0
+      display: none
+      +transition(opacity, .8s)
+      background: rgba(0,0,0, 1)
+      a
+        font-family: sans-serif
+    .content-submenu
+      a
+        margin:
+          top: 0
+          bottom: 0
+      
+    ul
+      +row(6, tablet, screen)
+      +row(4, huge)
+
+    .content-submenu
+      padding-bottom: 0.3em
+      li
+        +row(6, tablet, screen)
+        +row(4, huge)
+        a
+          +col(6, tablet, screen)
+          +col(4, huge)
+
+    .social-submenu
+      border-top: 1px solid $gray
+      padding:
+        top: 1em
+        bottom: 1em
+      li
+        width: 25px
+        height: 25px
+        @extend .positioned
+        @extend .gutter
+        margin-right: 0 !important
+        span.initial, span.remainder
+          display: none
+      .youtube, .facebook, .reverbnation, .bandcamp
+        background-size: 25px
+        a
+          display: block
+          height: 25px
+      .youtube
+        background: url(/img/social/youtube_25.png) no-repeat center center
+      .facebook
+        background: url(/img/social/facebook_25.png) no-repeat center center
+      .reverbnation
+        background: url(/img/social/reverbnation_25.png) no-repeat center center
+      .bandcamp
+        background: url(/img/social/bandcamp_25.png) no-repeat center center
+
+  .right:hover
+    .content-submenu, .social-submenu
+      pointer-events: auto
+      opacity: 1
+      display: block
+      +transition(opacity, .2s)
+
+
+  // Intro Animation
+  
+  ul.fresh
+    li.venus a
+      +animation(afford .1s ease-in-out 0s 2 alternate)
+    li.string-of-pearls a
+      +animation(afford .1s ease-in-out 0.1s 2 alternate)
+    li.jupiter a
+      +animation(afford .1s ease-in-out 0.2s 2 alternate)
+    li.io a
+      +animation(afford .1s ease-in-out 0.3s 2 alternate)
+    li.europa a
+      +animation(afford .1s ease-in-out 0.4s 2 alternate)
+    li.ganymede a
+      +animation(afford .1s ease-in-out 0.5s 2 alternate)
+    li.callisto a
+      +animation(afford .1s ease-in-out 0.6s 2 alternate)
+    li.entheogen a
+      +animation(afford .1s ease-in-out 0.7s 2 alternate)
+
+// Music Player
+
+#music
+  position: absolute
+  padding: 0
+  top: 0
+  left: 0
+  position: absolute
+  top: 50%
+  left: 50%
+  margin-left: -128px
+  margin-top: -128px
+  width: 256px
+  height: 256px
+  z-index: 4096
+
+  .ui360
+    padding-left: 0
+    display: block
+  .ui360-init
+    // display: none
+    // opacity: 0
+  .ui360-playing
+    // display: block
+    // opacity: 1
+  .sm2-360ui
+    margin-left: 0
+  .sm2-360btn
+    width: 120
+    height: 120
+    margin:
+      left: -60
+      top: -60
+    border-radius: none
+
+  // Breathing button anim
+
+  .sm2-360ui:hover .sm2-360btn
+    background: url(/assets/img/360-button-vis-play-light.png) no-repeat scroll 50% 50% transparent
+    +animation(none)
+  .sm2-360ui .sm2-360btn, .sm2_paused .sm2-360btn
+    background: url(/assets/img/360-button-vis-light.png) no-repeat scroll 50% 50% transparent
+    +animation(flicker 1s ease-in-out 0 infinite alternate)    
+
+  .sm2_playing:hover .sm2-360btn
+    background: none
+  .sm2_playing .sm2-360btn
+    background: none
+
+  .sm2-timing
+    position: absolute
+    margin-top: -100px
+    margin-left: 84px
+    color: white
+    +font(info, big)
+
+  .sm-cover
+    display: none
+  .sm2_link
+    display: none
+
+
+#app
+  +abs_container
+  top: 0
+  height: 100%
+
+// About
+
+.about-view
+  +col(16, screen, huge)
+  +push_col(4)
+  +col(18, tablet)
+  +push_col(4, tablet)
+  +col(24, handheld)
+  margin-top: 120px
+  background: rgba(0,0,0,.66)
+  color: white
+  +font(info, normal)
+  display: none
+
+.about-view.active
+  display: block
+  .opacity: 1
+  +animation(appear .4s ease-out 0s 1 normal)
+.about-view.destroyed
+  display: block
+  opacity: 0
+  +animation(disappear .4s ease-in 0s 1 normal)
+
+// Player View
+
+.player-view
+  position: absolute
+  top: 50%
+  margin-top: -120px
+.player-view-right
+  +col(12)
+  +push_col(12)
+  .wrap
+    margin-left: 128px
+.player-view-left
+  +col(12)
+  .wrap
+    margin-right: 128px
+    text-align: right
+.player-view
+  display: none
+  .wrap
+    color: white
+    // background: rgba(0,0,0,.84)
+    +transition(background, .1s)
+
+    .radec
+      display: block
+      color: white
+      padding-left: 9px
+      // +font(info, big)
+      font-family: $lato
+      font-weight: 300
+      +scale(2)
+
+    .name
+      color: $gold
+      +font(info, huge)
+
+      padding-left: 3px
+      padding-top: 1px
+    
+    .long-name
+      line-height: 105%
+
+    .member, .fact
+      // +font(info, normal)
+      font-family: $lato
+      font-weight: 300
+      +scale(2)
+      padding-left: 9px
+
+    .member
+      color: white
+    .fact
+      color: $gray
+
+// Player View Animations
+
+.player-view.active
+  display: block
+  .wrap
+    background: rgba(0,0,0,.66)
+    .radec
+      +animation(descend_in_a .3s ease-out 0s 1 normal)
+    .name
+      +animation(descend_in_b .3s ease-out 0s 1 normal)
+    .member, .fact
+      +animation(descend_in_c .3s ease-out 0s 1 normal)
+.player-view.destroyed
+  display: block
+  .wrap
+    background: rgba(0,0,0,0)
+    .radec, .name, .member, .fact
+      opacity: 0
+    .radec
+      +animation(descend_out_c .3s ease-in 0s 1 normal)
+    .name
+      +animation(descend_out_b .3s ease-in 0s 1 normal)
+    .member, .fact
+      +animation(descend_out_a .3s ease-in 0s 1 normal)
+
+// Map
+
+#map
+  height: 500px
+  width: 100%
+#map-canvas
+  height: 100%
+
+
+// Crosshairs
+
+$len: 128px
+$dis: 128px + 32px
+
+// We animate the dimensions and margins
+#crosshairs
+  position: absolute
+  left: 50%
+  top: 50%
+  z-index: 16000
+#top, #left, #bottom, #right
+  position: absolute
+  background: white
+  // opacity: .33
+#top, #bottom
+  height: 0px
+  width: 2px
+  margin-left: -1px
+#top.visible, #bottom.visible
+  height: $len
+#top
+  +transitions(margin-top .4s, height .4s)
+  margin-top: ($len/2 + $dis) * -1
+#top.visible
+  margin-top: ($len + $dis) * -1
+#bottom
+  +transitions(margin-top .4s, height .4s)
+  margin-top: $dis + $len/2
+#bottom.visible
+  margin-top: $dis
+#left, #right
+  width: 0px
+  height: 2px
+  margin-top: -1px
+#left.visible, #right.visible
+  width: $len * 2
+#left
+  +transitions(margin-left .4s, width .4s)
+  margin-left: ($len + $dis) * -1
+#left.visible
+  margin-left: ($len*2 + $dis) * -1
+#right
+  +transitions(margin-left .4s, width .4s)
+  margin-left: $dis + $len
+#right.visible
+  margin-left: $dis
+
+
+// Deprecated
+#soundcloud-view
+  width: 100%
+  position: absolute
+  bottom: 0
+  left: 0
+  .wrap
+    margin-right: 128px
+
+
+#secondary
+  background: #3a3a3a
+  +container
+  color: white
+  font-family: sans-serif
+
+  section
+    +row(24)
+    h2
+      +col(24)
+      +scale(5)
+      text-align: center
+      font-family: $montserrat
+      text-transform: uppercase
+      border-top: 2px solid black
+      line-height: 400%
+      margin-bottom: 0
+      // color: rgba(255,255,255,.8)
+      color: #ccc
+      text-shadow: 0px -1px 0 white, 0px 3px 0 rgba(0,0,0,.2)
+    h3
+      +col(16)
+      +push_col(4)
+      font-family: $lato
+      font-weight: 300
+      +scale(6)
+      color: black
+      text-transform: lowercase
+  
+  section#events
+    +row(24)
+    article.featured
+      +row(24)
+      background: black
+      background: rgba(0,0,0,.33)
+      padding:
+        top: 1.3em
+        bottom: 1.3em
+      h4, h5, p      
+        +col(16)
+        +push_col(4)
+        margin:
+          top: 0.5em
+          bottom: 0.5em
+      h4
+        +scale(4)
+        font-weight: 400
+        text-transform: uppercase
+        font-family: $montserrat
+      h5
+        +scale(2)
+        text-transform: lowercase
+        font-family: $lato
+        font-weight: 300
+      p
+        +scale(3)
+        font-family: $montserrat
+        // text-transform: uppercase
+
+    .vent
+      +col(6)
+      font-family: $lato
+      font-weight: 300
+
+  section#materials
+    +row(24)
+    margin-top: 4em
+    .cd
+      margin-top: -6em
+      +col(16)
+      +push_col(4)
+      text-align: center
+      img
+        width: 100%
+  
+  section#visuals
+    +row(24)
+    ul
+      list-style: none
+      +row(24)
+      outline: red
+      li
+        +col(6)
+        // +height(6)
+        background: grey
+        margin-bottom: 2em
+        img
+          width: 100%
+  
+  section#entheogenesis
+    +row(24)
+    margin-top: 2em
+    margin-bottom: 6em
+    .surf
+      background: rgba(0,0,0,.33)
+      +row(24)
+      padding:
+        top: 1.3em
+        bottom: 1.3em
+    p
+      +col(16)
+      +push_col(4)
+      +scale(1)
+      font-family: $lato
+      font-weight: 300
+      text-align: justify
+
+footer
+  // position: fixed
+  bottom: 0
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+=animation($def)
+  animation: $def
+  -webkit-animation: $def
+  -moz-animation: $def
+  -ms-animation: $def
+  -o-animation: $def
+
+=transition($prop, $dur)
+  transition: $prop $dur 
+  -webkit-transition: $prop $dur
+  -moz-transition: $prop $dur  
+  -ms-transition: $prop $dur
+  -o-transition: $prop $dur
+
+=transitions($t1, $t2)
+  transition: $t1, $t2
+  -webkit-transition: $t1, $t2
+  -moz-transition: $t1, $t2
+  -ms-transition: $t1, $t2
+  -o-transition: $t1, $t2
+
+=transit($def)
+  transition: $def 
+  -webkit-transition: $def
+  -moz-transition: $def  
+  -ms-transition: $def
+  -o-transition: $def
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content

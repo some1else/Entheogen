@@ -1,0 +1,72 @@
+@import util
+
+=scale($n: 1, $context: all, $c2: unset, $c3: unset, $c4: unset)
+  $selector: scale_#{$n}
+  +multi_extend($selector, $context, $c2, $c3, $c4)
+
+=generate_scale($context, $scale)
+
+  .scale_0, .#{$context}_scale_0
+    font-size: ceil(16/20 * $scale)
+    line-height: 170%
+    letter-spacing: 0em
+
+  .scale_1, .#{$context}_scale_1
+    font-size: ceil(20/20 * $scale)
+    line-height: 160%
+    letter-spacing: -0em
+
+  .scale_2, .#{$context}_scale_2
+    font-size: ceil(25/20 * $scale)
+    line-height: 150%
+    letter-spacing: -0.01em
+
+  .scale_3, .#{$context}_scale_3
+    font-size: ceil(31/20 * $scale)
+    line-height: 130%
+    letter-spacing: -0.02em
+
+  .scale_4, .#{$context}_scale_4
+    font-size: ceil(39/20 * $scale)
+    line-height: 110%
+    letter-spacing: -0.03em
+
+  .scale_5, .#{$context}_scale_5
+    font-size: ceil(50/20 * $scale)
+    line-height: 100%
+    letter-spacing: -0.033em
+
+
+  .scale_6, #{$context}_scale_6
+    font-size: ceil(61/20 * $scale)
+    line-height: 95%
+    letter-spacing: -0.033em
+
+=align($where: left, $context: all, $c2: unset, $c3: unset, $c4: unset)
+  $selector: align_#{$where}
+  +multi_extend($selector, $context, $c2, $c3, $c4)
+
+=generate_aligns($context, $scale)
+  .align_left, .#{$context}_align_left
+    text-align: left
+  .align_center, .#{$context}_align_center
+    text-align: center
+  .align_right, .#{$context}_align_right
+    text-align: right
+
+=generate_defaults($context, $scale)
+  h1
+    +scale(4)
+  h2
+    +scale(3)
+  h3
+    +scale(2)
+  h4, h5, h6
+    +scale(1)
+  body
+    +scale(1)
+
+=type($context, $scale: 20px)
+  +generate_scale($context, $scale)
+  +generate_aligns($context, $scale)
+  +generate_defaults($context, $scale)
