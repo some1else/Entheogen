@@ -54,6 +54,10 @@ gem "haml-rails"
 # gem 'formtastic',          github: 'justinfrench/formtastic'
 gem "uuidtools"
 
+group :production do
+  gem 'pg'
+end
+
 group :development do
 #  gem "rspec-rails"
 #  gem "guard-rspec"
