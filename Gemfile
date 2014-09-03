@@ -38,25 +38,32 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'activeadmin', github: 'gregbell/active_admin'
+  gem 'devise'
+
 
 gem "analytics-ruby"
 gem "bcrypt-ruby"
 gem "bourbon"
 gem "cancan"
 gem "haml-rails"
-gem "simple_form", git: "https://github.com/plataformatec/simple_form"
+# gem "simple_form", git: "https://github.com/plataformatec/simple_form"
+# gem 'formtastic',          github: 'justinfrench/formtastic'
 gem "uuidtools"
+
 group :development do
-  gem "rspec-rails"
-  gem "guard-rspec"
+#  gem "rspec-rails"
+#  gem "guard-rspec"
+  gem 'capistrano', '~> 2.15.5'
+  gem 'thin'
 end
 
 group :test do
-  gem "capybara"
-  gem "capybara-webkit"
-  gem "launchy"
-  gem "factory_girl_rails"
-  gem "database_cleaner"
+#  gem "capybara"
+#  gem "capybara-webkit"
+#  gem "launchy"
+#  gem "factory_girl_rails"
+#  gem "database_cleaner"
 end
 
 group :production do
