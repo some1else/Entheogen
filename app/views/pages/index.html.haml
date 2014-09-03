@@ -46,6 +46,14 @@
         /     %h5 Lineup:
         /     %p DIGILESPI, ENTHEOGEN
 
+
+    %section#news
+        %h2 News
+
+        - Post.each do |post|
+            .surf
+                %p= post.body
+                
     %section#materials
         %h2 Materials
 
