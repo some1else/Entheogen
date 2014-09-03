@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  begins_at: 2014-09-03 15:41:02
+  venue: MyString
+  lineup: MyString
+  fb_link: MyString
+
+two:
+  name: MyString
+  begins_at: 2014-09-03 15:41:02
+  venue: MyString
+  lineup: MyString
+  fb_link: MyString
