@@ -269,10 +269,10 @@ body
   // Breathing button anim
 
   .sm2-360ui:hover .sm2-360btn
-    background: url(/assets/img/360-button-vis-play-light.png) no-repeat scroll 50% 50% transparent
+    background: url(/img/360-button-vis-play-light.png) no-repeat scroll 50% 50% transparent
     +animation(none)
   .sm2-360ui .sm2-360btn, .sm2_paused .sm2-360btn
-    background: url(/assets/img/360-button-vis-light.png) no-repeat scroll 50% 50% transparent
+    background: url(/img/360-button-vis-light.png) no-repeat scroll 50% 50% transparent
     +animation(flicker 1s ease-in-out 0 infinite alternate)    
 
   .sm2_playing:hover .sm2-360btn
@@ -556,24 +556,25 @@ $dis: 128px + 32px
         margin-bottom: 2em
         img
           width: 100%
-  
-  section#entheogenesis
-    +row(24)
-    margin-top: 2em
-    margin-bottom: 6em
+  section.surfacebox
     .surf
       background: rgba(0,0,0,.33)
       +row(24)
       padding:
         top: 1.3em
         bottom: 1.3em
-    p
-      +col(16)
-      +push_col(4)
-      +scale(1)
-      font-family: $lato
-      font-weight: 300
-      text-align: justify
+      p
+        +col(16)
+        +push_col(4)
+        +scale(1)
+        font-family: $lato
+        font-weight: 300
+        text-align: justify
+      
+  section#entheogenesis
+    +row(24)
+    margin-top: 2em
+    margin-bottom: 6em
 
 footer
   // position: fixed

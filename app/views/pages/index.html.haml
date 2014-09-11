@@ -30,7 +30,16 @@
                 %h4= event.name
                 %h5 Date &amp; venue:
                 %p
-                    = event.begins_at
+                    - case event.begins_at.day % 10
+                    - when 1
+                        - dae = 'st'
+                    - when 2
+                        - dae = 'nd'
+                    - when 3
+                        - dae = 'rd'
+                    - else
+                        - dae = 'th'
+                    = event.begins_at.strftime("%A, %B %e#{dae}, %Y")
                     at
                     = event.venue
                 - unless event.lineup.empty?
@@ -47,12 +56,14 @@
         /     %p DIGILESPI, ENTHEOGEN
 
 
-    %section#news
+    %section#news.surfacebox
         %h2 News
 
-        - Post.each do |post|
+        - Post.all.each do |post|
             .surf
                 %p= post.body
+                %p
+                    %small= post.created_at.strftime("%A, %B %e. %Y")
                 
     %section#materials
         %h2 Materials
@@ -87,7 +98,7 @@
         /         %img{:src => '/fotke/819311_10151490492438408_208530920_o.jpg'}
 
 
-    %section#entheogenesis
+    %section#entheogenesis.surfacebox
         %h2 Entheogenesis
             
         .surf

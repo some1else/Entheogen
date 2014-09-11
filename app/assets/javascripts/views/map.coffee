@@ -38,7 +38,7 @@ class Ent.Views.Map extends Backbone.View
       p1 = new google.maps.LatLng(a.get('lat') - (a.get('d') / scaleDivider), a.get('lng') - (a.get('d') / scaleDivider))
       p2 = new google.maps.LatLng(a.get('lat') + (a.get('d') / scaleDivider), a.get('lng') + (a.get('d') / scaleDivider))
       imageBounds = new google.maps.LatLngBounds(p1, p2)
-      imgURL = '/assets/img/astrals/' + a.get('id') + '.png'
+      imgURL = '/img/astrals/' + a.get('id') + '.png'
       if true
         clickable = false
       else
