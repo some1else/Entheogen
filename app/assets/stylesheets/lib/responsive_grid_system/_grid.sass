@@ -43,6 +43,12 @@
       left: $gutter/2
       right: $gutter/2
 
+=generate_vertical_gutter($context, $gutter)
+  .vertical_gutter, .#{$context}_vertical_gutter
+    margin:
+      top: $gutter/2
+      bottom: $gutter/2
+
 // Makes grid columns guttered
 =guttered($context)
   @extend .#{$context}_gutter
@@ -185,6 +191,7 @@ $queries: all
 =grid($context: all, $width: 960px, $columns: 12, $gutter: 20px)
   +generate_container($context, $width, $gutter)
   +generate_gutter($context, $gutter)
+  +generate_vertical_gutter($context, $gutter)
   +generate_grid($context, $width, $columns, $gutter)
   +generate_hider($context)
 

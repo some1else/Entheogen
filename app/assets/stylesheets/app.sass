@@ -499,10 +499,11 @@ $dis: 128px + 32px
   
   section#events
     +row(24)
-    article.featured
+    .show-past:hover
+      color: $gold
+
+    article  
       +row(24)
-      background: black
-      background: rgba(0,0,0,.33)
       padding:
         top: 1.3em
         bottom: 1.3em
@@ -526,6 +527,14 @@ $dis: 128px + 32px
         +scale(3)
         font-family: $montserrat
         // text-transform: uppercase
+      a
+        color: $gold
+        +scale(1)
+    article.featured
+      background: black
+      background: rgba(0,0,0,.33)
+    article.old
+      outline: 1px solid lightgray
 
     .vent
       +col(6)
@@ -545,17 +554,18 @@ $dis: 128px + 32px
   
   section#visuals
     +row(24)
-    ul
-      list-style: none
+    .images
       +row(24)
-      outline: red
-      li
-        +col(6)
-        // +height(6)
-        background: grey
-        margin-bottom: 2em
+      +transition(height, 0.2s)
+      .image
+        @extend .vertical_gutter
         img
           width: 100%
+      .image-small
+        +col(6)
+      .image-big
+        +col(18)
+    
   section.surfacebox
     .surf
       background: rgba(0,0,0,.33)

@@ -4,6 +4,6 @@ class Event < ActiveRecord::Base
   end
 
   def self.past
-    Event.all.where("begins_at > ?", Time.now)
+    Event.all.where("begins_at < ?", Time.now)
   end
 end
