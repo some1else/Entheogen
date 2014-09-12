@@ -44,6 +44,10 @@ gem 'activeadmin', github: 'gregbell/active_admin'
   gem 'inherited_resources' #, github: 'josevalim/inherited_resources'
   gem 'formtastic' #,          github: 'justinfrench/formtastic'
 
+gem 'acts_as_list'
+
+gem 'carrierwave'
+  gem "mini_magick"
 
 gem "analytics-ruby"
 gem "bcrypt-ruby"
