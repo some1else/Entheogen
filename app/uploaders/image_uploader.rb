@@ -32,11 +32,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   version :big_version do
-    process :resize_to_fit => [1280, 1280], :quality => 73
+    process :resize_to_fit => [1280, 1280]# , :quality => 73
   end
 
   version :big_thumb do
-    process :resize_to_fill => [640,640], :quality => 92
+    process :resize_to_fill => [640,640]# , :quality => 92
   end
 
   # Create different versions of your uploaded files:
