@@ -28,3 +28,4 @@ doc/
 .idea
 .secret
 .DS_Store
+public/uploads
