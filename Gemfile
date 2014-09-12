@@ -49,6 +49,10 @@ gem 'acts_as_list'
 gem 'carrierwave'
   gem "mini_magick"
 
+# gem 'activeadmin-gallery', github: 'stefanoverna/activeadmin-gallery'
+#   gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly'
+  gem "activeadmin-extra", github: "stefanoverna/activeadmin-extra"
+
 gem "analytics-ruby"
 gem "bcrypt-ruby"
 gem "bourbon"

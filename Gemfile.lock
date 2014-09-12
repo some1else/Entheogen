@@ -15,6 +15,13 @@ GIT
       ransack (~> 1.3)
       sass-rails
 
+GIT
+  remote: git://github.com/stefanoverna/activeadmin-extra.git
+  revision: 4b35136be9291e85618a5a361ed53bd8b95e6c04
+  specs:
+    activeadmin-extra (0.1.0)
+      activeadmin
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -123,7 +130,7 @@ GEM
     mime-types (1.25.1)
     mini_magick (3.8.1)
       subexec (~> 0.2.1)
-    minitest (5.4.0)
+    minitest (5.4.1)
     multi_json (1.10.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -187,7 +194,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.1.3)
+    sprockets-rails (2.1.4)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
@@ -205,7 +212,7 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
-    tzinfo (1.2.1)
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
@@ -223,6 +230,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  activeadmin-extra!
   acts_as_list
   analytics-ruby
   bcrypt-ruby
