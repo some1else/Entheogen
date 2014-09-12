@@ -231,13 +231,20 @@ ActiveAdmin.setup do |config|
   #
   # config.default_per_page = 30
 
-
+  ActiveAdmin::ResourceController.class_eval do
+    # Allow ActiveAdmin admins to freely mass-assign when using strong_parameters
+    def resource_params
+      [(params[resource_request_name] || params[resource_instance_name]).try(:permit!) || {}]
+    end
+  end
   # == Filters
   #
   # By default the index screen includes a “Filters” sidebar on the right
   # hand side with a filter for each attribute of the registered model.
   # You can enable or disable them for all resources here.
   #
-  # config.filters = true
-
+  config.filters = false
+  config.before_filter do
+    params.permit!
+  end
 end
