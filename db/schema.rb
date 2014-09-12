@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903134102) do
+ActiveRecord::Schema.define(version: 20140912100010) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -56,10 +56,27 @@ ActiveRecord::Schema.define(version: 20140903134102) do
     t.datetime "updated_at"
   end
 
+  create_table "galleries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", force: true do |t|
+    t.string   "image"
+    t.integer  "position"
+    t.integer  "gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["gallery_id"], name: "index_photos_on_gallery_id"
+
   create_table "posts", force: true do |t|
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "published_at"
   end
 
 end
