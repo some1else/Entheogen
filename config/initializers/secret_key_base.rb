@@ -1,0 +1,1 @@
+Entheogen::Application.config.secret_key_base = '99606309d50fae08a3d2584a4addfe5dae7fbf987d34744ddb7b560d7047667bec99c7ab28612228a3bd3d042e3c74e47877a12cfb4db052a0ce22fd66fc3297'
