@@ -21,6 +21,7 @@ ActiveAdmin.register Gallery do
   #     params.permit(:name, :album_images_attributes => [])
   #   end
   # end
+
   show do
     panel "Gallery Details" do
       table_for gallery do
@@ -31,13 +32,35 @@ ActiveAdmin.register Gallery do
     panel "Gallery Images" do
       table_for gallery.photos do
         column :id
-        column :image do |i|
-          image_tag i.image.versions[:big_thumb].url
+        column :image do |photo|
+          #image_tag i.image.versions[:big_thumb].url
+          o = ''
+          #product.product_images.each do |image|
+          o += image_tag(photo.image.versions[:big_thumb].url, :style => 'height: 200px;')
+          o += '<br>'
+          
+          unless photo.first?
+            o += link_to('To top', move_to_top_admin_gallery_photo_path(photo.gallery, photo), :method => 'put', :class => 'button')
+          end
+          if photo.higher_item
+            o += link_to('Higher', move_higher_admin_gallery_photo_path(photo.gallery, photo), :method => 'put', :class => 'button')
+          end
+          if photo.lower_item
+            o += link_to('Lower', move_lower_admin_gallery_photo_path(photo.gallery, photo), :method => 'put', :class => 'button')
+          end
+          unless photo.last?
+            o += link_to('To bottom', move_to_bottom_admin_gallery_photo_path(photo.gallery, photo), :method => 'put', :class => 'button')
+          end
+          o += '<br>'
+          o += '<br>'
+        
+          raw o
         end
         # ...
       end
     end
   end
+
 
   form do |f|
     f.inputs do
@@ -45,7 +68,6 @@ ActiveAdmin.register Gallery do
     end
     f.inputs "Photos" do
       f.has_many :photos, :allow_destroy => true, :heading => 'Photos', :new_record => true do |photo|
-        # if photo.object.image.url != nil
         photo.input :_destroy, :as => :boolean, :required => false, :label => 'Delete image' if !photo.object.nil? && !photo.object.new_record? 
 
         if photo.object != nil and photo.object.image != nil and photo.object.image.url != nil
@@ -54,11 +76,8 @@ ActiveAdmin.register Gallery do
           photo.input :image
         end
         # raw image_tag photo.object.image.versions[:big_thumb].url
-        # end
+
       end
-      # f.inputs :images do
-      #   f.has_many_images :album_images
-      # end
     end
     f.actions
   end

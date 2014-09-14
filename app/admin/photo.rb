@@ -8,6 +8,28 @@ ActiveAdmin.register Photo do
 
   permit_params :image, :gallery_id, :position
 
+  member_action :move_to_top, :method => :put do
+    photo = Photo.find(params[:id])
+    photo.move_to_top
+    redirect_to admin_gallery_path(photo.gallery_id), {:notice => "Moved successfully."}
+  end
+  member_action :move_higher, :method => :put do
+    photo = Photo.find(params[:id])
+    photo.move_higher
+    redirect_to admin_gallery_path(photo.gallery_id), {:notice => "Moved successfully."}
+  end
+
+  member_action :move_lower, :method => :put do
+    photo = Photo.find(params[:id])
+    photo.move_lower
+    redirect_to admin_gallery_path(photo.gallery_id), {:notice => "Moved successfully."}
+  end
+  member_action :move_to_bottom, :method => :put do
+    photo = Photo.find(params[:id])
+    photo.move_to_bottom
+    redirect_to admin_gallery_path(photo.gallery_id), {:notice => "Moved successfully."}
+  end
+  
   # or
   #
   # permit_params do
