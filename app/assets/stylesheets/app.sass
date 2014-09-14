@@ -601,9 +601,42 @@ $dis: 128px + 32px
     margin-bottom: 6em
 
 footer
+  +container
   // position: fixed
-  bottom: 0
-
+  // bottom: 0
+  padding-bottom: 8em
+  overflow: hidden
+  h2
+    +col(24)
+    font-family: $montserrat
+    text-transform: uppercase
+    text-align: center 
+  ul.social
+    list-style: none
+    padding-left: 0
+    margin:
+      top: 0
+      bottom: 0
+    +row(12, screen, huge)
+    +push_row(6, screen, huge)
+    +row(16, tablet)
+    +push_row(4, tablet)
+    +row(24, handheld)
+    li
+      +col(3, screen, huge)
+      +col(4, tablet)
+      +col(12, handheld)
+      +positioned
+      a
+        display: block
+        line-height: 2em
+        text-align: center
+        font-family: $metro
+        font-weight: 500
+        color: white
+        text-decoration: none
+      a:hover
+        color: $gold
 
 
 
