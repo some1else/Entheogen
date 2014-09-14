@@ -6,7 +6,8 @@ Ent.Views ||= {}
 # Responds to `routes` and instantiates appropriate `Views`
 class Ent.App extends Backbone.Router
   routes:
-    '/'                  : 'index'
+    ''                  : 'index'
+    '/'                 : 'index'
 
     'about'             : 'about'
     'events'            : 'events'
@@ -29,6 +30,7 @@ class Ent.App extends Backbone.Router
 
     # @initApp()
     @initNav()
+    @initPlayerNav()
     @initMap()
     @initCrosshairs()
     console.log 'lol'
@@ -50,6 +52,9 @@ class Ent.App extends Backbone.Router
     # @updateCrosshairs 1, 1, 1, 1
 
     @updateCrosshairs 0, 0, 0, 0
+
+    @nav.activateLink(@nav.$('.moons-of-jupiter a').get(0))
+    @player_nav.activateLink(null)
 
     if @map.isHome()
       @$app.html @view.render().el
@@ -160,6 +165,11 @@ class Ent.App extends Backbone.Router
     @$nav.html @nav.render().el
     @nav.postRender()
 
+  initPlayerNav: ->
+    @player_nav = new Ent.Views.PlayerNav()
+    @$player_nav.html @player_nav.render().el
+    @player_nav.postRender()
+
   # `Map` view
   initMap: ->
     astrals = _.filter(@astrals.models, (a) ->
@@ -199,6 +209,7 @@ class Ent.App extends Backbone.Router
   assignDOMElements: ->
     @$app = $('#app')
     @$nav = $('#nav')
+    @$player_nav = $('#player-nav')
     @$map = $('#map')
     @$xhr = $('#crosshairs')
 

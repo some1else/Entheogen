@@ -91,14 +91,20 @@ body
   background: #3a3a3a
  
 #nav
+  bottom: 0
+  padding-top: 20px
+  background: black
+  ul li a
+    text-transform: uppercase
+#player-nav
+  padding-top: 20px
+  background-color: rgba(0, 0, 0, 0.6)
+#nav, #player-nav
   position: absolute
   width: 100%
   z-index: 1024
   height: 60px
   // background: rgba(0,0,8,.66)
-  background: black
-  bottom: 0
-  padding-top: 20px
 
   a
     color: white
@@ -120,18 +126,26 @@ body
         color: $gold
       a.active:hover
         +animation(none)
+  
 
-  ul.left
-    float: left
-    padding-left: 15px
+  ul
     li
-      float: left
       padding:
         left: 1em
         right: 1em
     a
       font-family: $metro
       font-weight: 500
+  ul.center
+    float: none
+    text-align: center
+    li
+      display: inline-block
+  ul.left
+    float: left
+    padding-left: 15px
+    li
+      float: left
   .right
     float: right
     +row(6, tablet, screen)
