@@ -7,6 +7,7 @@ class Ent.Views.Nav extends Backbone.View
   template: _.template("  <ul class='left music nav fresh'>
                             <li class='moons-of-jupiter local'><a href='#moons-of-jupiter'>Moons of Jupiter</a></li>
                             <li class='events local'><a href='#events'>Events</a></li>
+                            <li class='news local'><a href='#news'>News</a></li>
                             <li class='materials local'><a href='#materials'>Materials</a></li>
                             <li class='visuals local'><a href='#visuals'>Visuals</a></li>
                             <li class='entheogenesis local'><a href='#entheogenesis'>Entheogenesis</a></li>

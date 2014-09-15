@@ -21,145 +21,15 @@
         %a{:href => "/mp3/entheogen-string-of-pearls.mp3"}
 
 #secondary
-    %section#events{:style => 'position: relative;'}
-        %h2 Events
-        
-        - unless Event.past.empty?
-            %h3.show-past{:style => 'position: absolute; right: 0; text-align: right;'}
-                %small Show Past
-            :coffeescript
-                $ ->
-                    console.log ('lol')
-                    $('#events .show-past').click ->
-                        $('#events .show-past').hide()
-                        $('#events .past').slideDown()
-
-            .past{:style => 'display: none;'}
-                %h3 Past
-                - Event.past.each do |event|
-                    %article.old
-                        %h4= event.name
-                        %h5 Date &amp; venue:
-                        %p
-                            - case event.begins_at.day % 10
-                            - when 1
-                                - dae = 'st'
-                            - when 2
-                                - dae = 'nd'
-                            - when 3
-                                - dae = 'rd'
-                            - else
-                                - dae = 'th'
-                            = event.begins_at.strftime("%A, %B %e#{dae}, %Y")
-                            at
-                            = event.venue
-                        - unless event.lineup.empty?
-                            %h5 Lineup
-                            %p= event.lineup
-                        - unless event.fb_link.empty?
-                            %p= link_to "Facebook", event.fb_link
-        
-        - unless Event.upcoming.empty?
-            %h3 Upcoming
-            
-            - Event.upcoming.each do |event|
-                %article.featured
-                    %h4= event.name
-                    %h5 Date &amp; venue:
-                    %p
-                        - case event.begins_at.day % 10
-                        - when 1
-                            - dae = 'st'
-                        - when 2
-                            - dae = 'nd'
-                        - when 3
-                            - dae = 'rd'
-                        - else
-                            - dae = 'th'
-                        = event.begins_at.strftime("%A, %B %e#{dae}, %Y")
-                        at
-                        = event.venue
-                    - unless event.lineup.empty?
-                        %h5 Lineup
-                        %p= event.lineup
-                    - unless event.fb_link.empty?
-                        %p= link_to "Facebook", event.fb_link
-
+    = render "events"
     
-    - posts = Post.all.reject {|p| p.published_at.nil? }
-    - unless posts.empty?
-        %section#news.surfacebox
-            %h2 News
-
-            - posts.each do |post|
-                - unless post.published_at.nil?
-                    .surf
-                        %p= post.body
-                        %p
-                            %small= post.published_at.strftime("%A, %B %e. %Y")
+    = render "news"
                     
-    %section#materials
-        %h2 Materials
-
-        .cd{'data-bottom-top' => 'opacity: 0; transform[sqrt]: translateY(-8.00em);', 'data-center-center' => 'opacity: 1; transform[sqrt]: translateY(0.00em);'}
-            %a{:href => 'http://entheogenband.bandcamp.com', :target => 'blank'}
-                %img{:src => '/img/cd-preview-render.png'}
+    = render "materials"
     
-    %section#visuals
-        %h2 Visuals
+    = render "visuals"
 
-        - Gallery.all.each do |gallery|
-            %h3= gallery.name
-            
-            .images
-                - gallery.photos.each do |photo|
-                    .image.image-small
-                        = image_tag photo.image.url
+    = render "entheogenesis"
 
-        :coffeescript
-            $ ->
-                $('#visuals').imagesLoaded -> 
-                    $('#visuals .images').packery({
-                        itemSelector: '.image'
-                        gutter: 0
-                    })
-                    $('#visuals .image').click (e) ->
-                        if $(e.currentTarget).hasClass 'image-big'
-                            $(e.currentTarget).removeClass 'image-big'
-                            $(e.currentTarget).addClass 'image-small'
-                        else
-                            $(e.currentTarget).removeClass 'image-small'
-                            $(e.currentTarget).addClass 'image-big'
-                        
-                        $(e.currentTarget).parent('.images').packery('fit', e.currentTarget)
-                        $(e.currentTarget).parent('.images').packery('layout')
-
-    %section#entheogenesis.surfacebox
-        %h2 Entheogenesis
-            
-        .surf
-            %p Approximately four years ago two planetoids - one from a stoner rock group called MG Pistol Rock, the other from a math/post rock group called Imakandi - collided and melted all but their metal core. The result is Entheogen - a homogenous mixture of math/sludge with a pinch of post- and stoner rock. After years of evolution, erosion and gigabytes of organized noise enough matter had broken away from the moons to create a debut album, scheduled to see its first sunrise in the first half of 2013. 
-
-            %p The creative process converted the resulting friction into energy for Moons of Jupiter - a thematic album dedicated to the STS-34 mission - the spacecraft Galileo (named after the first observer of Jupiter's moons, described in his Siderius Nuncius from 1610) that was launched on its path from Earth to the gas giant in 1989. The music represents an attempt of a sonic rendering of the mission and is therefore different from phase to phase. The basis remains instrumental math/sludge with influences from bands like Neurosis, Meshuggah, Pelican, Alice in Chains and the like.
-            
-            %p Released 11 May 2013 
-            %p Matic Kadliček, Sergej Žižek, Matej Voglar, Matija Bencik
-
-%footer
-    %h2 Elsewhere
-    %ul.social
-        %li.youtube
-            %a{title: 'YouTube', target:'_blank', href: 'http://www.youtube.com/user/3nth30g3n'}
-                YouTube
-        %li.facebook
-            %a{title: 'Facebook', target:'_blank', href: 'https://www.facebook.com/pages/Entheogen/70202543407'}
-                Facebook
-        %li.reverbnation
-            %a{title: 'ReverbNation', target:'_blank', href: 'http://reverbnation.com/entheogenband'}
-                ReverbNation
-        %li.bandcamp
-            %a{title: 'Bandcamp', target:'_blank', href: 'http://entheogenband.bandcamp.com/'}
-                Bandcamp
-        / %li.email
-        /     %a{:href => 'mailto:info@entheogen.si'} info@entheogen.si
+= render "footer"
 

@@ -1,0 +1,11 @@
+- posts = Post.all.reject {|p| p.published_at.nil? }
+- unless posts.empty?
+    %section#news.surfacebox
+        %h2 News
+
+        - posts.each do |post|
+            - unless post.published_at.nil?
+                .surf
+                    %p= raw post.body
+                    %p
+                        %small= post.published_at.strftime("%A, %B %e. %Y")

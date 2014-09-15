@@ -16,11 +16,28 @@ GIT
       sass-rails
 
 GIT
+  remote: git://github.com/stefanoverna/activeadmin-dragonfly.git
+  revision: 89a47f9124b1c4ee4ae79f6c32aa999d2566c5d1
+  specs:
+    activeadmin-dragonfly (0.0.2)
+      activeadmin
+      dragonfly (= 0.9.15)
+      rack-cache
+
+GIT
   remote: git://github.com/stefanoverna/activeadmin-extra.git
   revision: 4b35136be9291e85618a5a361ed53bd8b95e6c04
   specs:
     activeadmin-extra (0.1.0)
       activeadmin
+
+GIT
+  remote: git://github.com/stefanoverna/activeadmin-wysihtml5.git
+  revision: 38bca2986d116bb6459d3f5cafd4479a73eb51cd
+  specs:
+    activeadmin-wysihtml5 (1.0.0)
+      activeadmin
+      activeadmin-dragonfly
 
 GEM
   remote: https://rubygems.org/
@@ -90,6 +107,9 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dragonfly (0.9.15)
+      multi_json (~> 1.0)
+      rack
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.1)
@@ -145,6 +165,8 @@ GEM
       activerecord (>= 3.0)
     polyglot (0.3.5)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.4)
@@ -230,7 +252,9 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  activeadmin-dragonfly!
   activeadmin-extra!
+  activeadmin-wysihtml5!
   acts_as_list
   analytics-ruby
   bcrypt-ruby

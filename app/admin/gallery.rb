@@ -67,7 +67,7 @@ ActiveAdmin.register Gallery do
       f.input :name
     end
     f.inputs "Photos" do
-      f.has_many :photos, :allow_destroy => true, :heading => 'Photos', :new_record => true do |photo|
+      f.has_many_with_fixes :photos, :allow_destroy => true, :heading => 'Photos', :new_record => true do |photo|
         photo.input :_destroy, :as => :boolean, :required => false, :label => 'Delete image' if !photo.object.nil? && !photo.object.new_record? 
 
         if photo.object != nil and photo.object.image != nil and photo.object.image.url != nil

@@ -53,6 +53,9 @@ gem 'carrierwave'
 #   gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly'
   gem "activeadmin-extra", github: "stefanoverna/activeadmin-extra"
 
+gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly'
+gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'
+
 gem "analytics-ruby"
 gem "bcrypt-ruby"
 gem "bourbon"

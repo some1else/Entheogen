@@ -1,0 +1,28 @@
+%section#visuals
+    %h2 Visuals
+
+    - Gallery.all.each do |gallery|
+        %h3= gallery.name
+        
+        .images
+            - gallery.photos.each do |photo|
+                .image.image-small
+                    = image_tag photo.image.url
+
+    :coffeescript
+        $ ->
+            $('#visuals').imagesLoaded -> 
+                $('#visuals .images').packery({
+                    itemSelector: '.image'
+                    gutter: 0
+                })
+                $('#visuals .image').click (e) ->
+                    if $(e.currentTarget).hasClass 'image-big'
+                        $(e.currentTarget).removeClass 'image-big'
+                        $(e.currentTarget).addClass 'image-small'
+                    else
+                        $(e.currentTarget).removeClass 'image-small'
+                        $(e.currentTarget).addClass 'image-big'
+                    
+                    $(e.currentTarget).parent('.images').packery('fit', e.currentTarget)
+                    $(e.currentTarget).parent('.images').packery('layout')

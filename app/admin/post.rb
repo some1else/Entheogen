@@ -15,5 +15,12 @@ ActiveAdmin.register Post do
   #   permitted
   # end
 
+  form do |f|
+    f.inputs "Details" do
+      f.input :body, as: :wysihtml5, commands: [:bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link, :image, :video], blocks: :barebone, height: :large
+      f.input :published_at
+    end
+    f.actions
+  end
 
 end

@@ -78,7 +78,7 @@ ul
   padding-left: 0 !important
 
 body
-  background: #000
+  // background: #000
   // line-height: 19px
   // font-smooth: always
   // -webkit-text-stroke: 1px transparent
@@ -490,16 +490,19 @@ $dis: 128px + 32px
 
   section
     +row(24)
+    background: #3a3a3a
     h2
-      +col(24)
+      +row(24)
       +scale(5)
       text-align: center
       font-family: $montserrat
       text-transform: uppercase
-      border-top: 2px solid black
+      // border-bottom: 2px solid #222
+      // border-top: 3px double #555
       line-height: 400%
       margin-bottom: 0
       // color: rgba(255,255,255,.8)
+      // background: black
       color: #ccc
       text-shadow: 0px -1px 0 white, 0px 3px 0 rgba(0,0,0,.2)
     h3
@@ -515,7 +518,10 @@ $dis: 128px + 32px
     +row(24)
     .show-past:hover
       color: $gold
-
+    h3
+      margin-top: 0
+    .past
+      margin-bottom: 2em
     article  
       +row(24)
       padding:
@@ -554,6 +560,14 @@ $dis: 128px + 32px
       +col(6)
       font-family: $lato
       font-weight: 300
+  
+  section#news
+    margin-top: 4em
+
+    .surf+.surf
+      padding-top: 0
+      p:first-child
+        margin-top: 0
 
   section#materials
     +row(24)
@@ -568,18 +582,36 @@ $dis: 128px + 32px
   
   section#visuals
     +row(24)
+    h3
+      +scale(3)
+      margin-top: 2em
+    h2+h3
+      margin-top: 0
     .images
       +row(24)
       +transition(height, 0.2s)
       .image
-        @extend .vertical_gutter
+        // @extend .vertical_gutter
+        box-sizing: border-box
+        padding: 2px
+        // +transitions(width .2s, height .2s)
+        cursor: pointer
         img
           width: 100%
+          opacity: .7
+          +transition(opacity, .4s)
+
       .image-small
-        +col(6)
+        +row(4)
       .image-big
-        +col(18)
-    
+        +row(12)
+        img
+          opacity: 1
+      .image:hover
+        img
+          opacity: 1
+          +transition(opacity, .2s)
+
   section.surfacebox
     .surf
       background: rgba(0,0,0,.33)
@@ -597,8 +629,8 @@ $dis: 128px + 32px
       
   section#entheogenesis
     +row(24)
-    margin-top: 2em
-    margin-bottom: 6em
+    margin-top: 6em
+    margin-bottom: 4em
 
 footer
   +container

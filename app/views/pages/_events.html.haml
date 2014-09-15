@@ -1,0 +1,63 @@
+%section#events{:style => 'position: relative;'}
+    %h2 Events
+    
+    - unless Event.past.empty?
+        %h3.show-past{:style => 'position: absolute; right: 0; text-align: right;'}
+            %small Show Past
+        :coffeescript
+            $ ->
+                console.log ('lol')
+                $('#events .show-past').click ->
+                    $('#events .show-past').hide()
+                    $('#events .past').slideDown()
+
+        .past{:style => 'display: none;'}
+            %h3 Past
+            - Event.past.each do |event|
+                %article.old
+                    %h4= event.name
+                    %h5 Date &amp; venue:
+                    %p
+                        - case event.begins_at.day % 10
+                        - when 1
+                            - dae = 'st'
+                        - when 2
+                            - dae = 'nd'
+                        - when 3
+                            - dae = 'rd'
+                        - else
+                            - dae = 'th'
+                        = event.begins_at.strftime("%A, %B %e#{dae}, %Y")
+                        at
+                        = event.venue
+                    - unless event.lineup.empty?
+                        %h5 Lineup
+                        %p= event.lineup
+                    - unless event.fb_link.empty?
+                        %p= link_to "Facebook", event.fb_link
+    
+    - unless Event.upcoming.empty?
+        %h3 Upcoming
+        
+        - Event.upcoming.each do |event|
+            %article.featured
+                %h4= event.name
+                %h5 Date &amp; venue:
+                %p
+                    - case event.begins_at.day % 10
+                    - when 1
+                        - dae = 'st'
+                    - when 2
+                        - dae = 'nd'
+                    - when 3
+                        - dae = 'rd'
+                    - else
+                        - dae = 'th'
+                    = event.begins_at.strftime("%A, %B %e#{dae}, %Y")
+                    at
+                    = event.venue
+                - unless event.lineup.empty?
+                    %h5 Lineup
+                    %p= event.lineup
+                - unless event.fb_link.empty?
+                    %p= link_to "Facebook", event.fb_link
