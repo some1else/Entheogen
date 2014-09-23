@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914234509) do
+ActiveRecord::Schema.define(version: 20140923185512) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(version: 20140914234509) do
     t.string   "storage_size"
   end
 
+  create_table "entheogeneses", force: true do |t|
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", force: true do |t|
     t.string   "name"
     t.datetime "begins_at"
@@ -68,7 +74,10 @@ ActiveRecord::Schema.define(version: 20140914234509) do
     t.string   "fb_link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "gallery_id"
   end
+
+  add_index "events", ["gallery_id"], name: "index_events_on_gallery_id"
 
   create_table "galleries", force: true do |t|
     t.string   "name"

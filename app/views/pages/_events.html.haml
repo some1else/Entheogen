@@ -2,7 +2,7 @@
     %h2 Events
     
     - unless Event.past.empty?
-        %h3.show-past{:style => 'position: absolute; right: 0; text-align: right;'}
+        %h3.show-past
             %small Show Past
         :coffeescript
             $ ->
@@ -33,9 +33,14 @@
                     - unless event.lineup.empty?
                         %h5 Lineup
                         %p= event.lineup
-                    - unless event.fb_link.empty?
-                        %p= link_to "Facebook", event.fb_link
-    
+
+                    - unless event.fb_link.empty? and event.gallery.nil? 
+                        %p
+                            - unless event.fb_link.empty?
+                                = link_to "Facebook", event.fb_link
+                            - unless event.gallery.nil?
+                                = link_to "Photos", {:anchor => "gallery_#{event.gallery.id}"}, {:class => "gallery-link"}
+
     - unless Event.upcoming.empty?
         %h3 Upcoming
         
@@ -61,3 +66,13 @@
                     %p= event.lineup
                 - unless event.fb_link.empty?
                     %p= link_to "Facebook", event.fb_link
+    - else
+        %h3 No future events
+
+:coffeescript
+    $ ->
+        $('.gallery-link').click (e) ->
+            e.preventDefault()
+            targetId = e.currentTarget.href.substr(e.currentTarget.href.indexOf('#'), e.currentTarget.href.length)
+            newTop = $(targetId).offset().top - $('#nav').outerHeight()
+            $('body').animate({scrollTop: newTop}, 333)

@@ -2,6 +2,8 @@ class Gallery < ActiveRecord::Base
   # has_many_images :album_images
 
   has_many :photos
+  has_one :event
+  
   accepts_nested_attributes_for :photos, allow_destroy: true
 
   # def reject_photos(photo)

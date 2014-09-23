@@ -2,12 +2,14 @@
     %h2 Visuals
 
     - Gallery.all.each do |gallery|
-        %h3= gallery.name
-        
-        .images
-            - gallery.photos.each do |photo|
-                .image.image-small
-                    = image_tag photo.image.url
+        .gallery{:id => "gallery_#{gallery.id}"}
+            %h3
+                = gallery.name
+            
+            .images
+                - gallery.photos.each do |photo|
+                    .image.image-small
+                        = image_tag photo.image.url
 
     :coffeescript
         $ ->

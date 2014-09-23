@@ -15,5 +15,17 @@ ActiveAdmin.register Event do
   #   permitted
   # end
 
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :venue
+      f.input :lineup
+      f.input :begins_at
+      f.input :fb_link
+      f.input :gallery
+    end
+    f.actions
+  end
+
 
 end
