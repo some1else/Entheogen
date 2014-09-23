@@ -1,4 +1,6 @@
 ActiveAdmin.register Gallery do
+  menu priority: 3, :label => "Visuals"
+
   # has_many :photos
 
   # See permitted parameters documentation:

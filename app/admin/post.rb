@@ -1,4 +1,5 @@
 ActiveAdmin.register Post do
+  menu priority: 2, :label => "News"
 
 
   # See permitted parameters documentation:
