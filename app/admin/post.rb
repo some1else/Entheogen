@@ -1,6 +1,7 @@
 ActiveAdmin.register Post do
   menu priority: 2, :label => "News"
 
+  config.batch_actions = false
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -16,9 +17,10 @@ ActiveAdmin.register Post do
   #   permitted
   # end
 
+
   form do |f|
     f.inputs "Details" do
-      f.input :body, as: :wysihtml5, commands: [:bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link, :image, :video], blocks: :barebone, height: :large
+      f.input :body, as: :wysihtml5, commands: [:bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link], blocks: :barebone, height: :large
       f.input :published_at
     end
     f.actions
