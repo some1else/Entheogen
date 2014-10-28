@@ -1,5 +1,7 @@
 %section#visuals
     %h2 Visuals
+    
+    %iframe{:width => "560", :height => "315", :src => "//www.youtube.com/embed/videoseries?list=PL618hh982u6E8V4xoGgctKTOMEy4ZCrR3", :frameborder => "0", :allowfullscreen => 'true'}
 
     - Gallery.all.each do |gallery|
         .gallery{:id => "gallery_#{gallery.id}"}
