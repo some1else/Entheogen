@@ -580,17 +580,18 @@ $dis: 128px + 32px
   
   section#news
     margin-top: 4em
-
-    .surf+.surf
-      // padding-top: 0
-      p:first-child
-        margin-top: 0
-      
+    
+    .surf
       a, a:link, a:active, a:visited, a:hover
         color: $gold
         text-decoration: none
       a:hover
         text-decoration: underline
+    .surf+.surf
+      // padding-top: 0
+      p:first-child
+        margin-top: 0
+      
 
   section#materials
     +row(24)
