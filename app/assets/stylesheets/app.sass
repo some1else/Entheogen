@@ -513,7 +513,19 @@ $dis: 128px + 32px
       +scale(6)
       color: black
       text-transform: lowercase
-  
+
+
+    .description
+      +col(16)
+      +push_col(4)
+      font-family: $lato
+      font-weight: 300
+      +scale(1)
+
+
+      color: white
+      text-transform: lowercase
+
   section#events
     +row(24)
     .show-past
@@ -592,7 +604,14 @@ $dis: 128px + 32px
       margin-top: 2em
     h2+h3
       margin-top: 0
+    h3
+      margin-bottom: 0
+    .description
+      margin:
+        top: 0
+        bottom: 1em
     .images
+      margin-top: 1em
       +row(24)
       +transition(height, 0.2s)
       .image

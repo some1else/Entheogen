@@ -3,9 +3,15 @@
 
     - Gallery.all.each do |gallery|
         .gallery{:id => "gallery_#{gallery.id}"}
+            
             %h3
                 = gallery.name
             
+            - unless gallery.description.nil? or gallery.description.empty?
+            
+                .description
+                    = gallery.description
+
             .images
                 - gallery.photos.each do |photo|
                     .image.image-small

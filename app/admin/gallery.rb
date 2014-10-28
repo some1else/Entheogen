@@ -8,7 +8,7 @@ ActiveAdmin.register Gallery do
   #
   # permit_params :list, :of, :attributes, :on, :model
   
-  permit_params :name, :photos_attributes => [[:_destroy, :image, :position]] # , photos_attributes: [:image, :position] #, album_images_attributes: []
+  permit_params :name, :description, :photos_attributes => [[:_destroy, :image, :position]] # , photos_attributes: [:image, :position] #, album_images_attributes: []
 
   # or
   #
@@ -29,6 +29,7 @@ ActiveAdmin.register Gallery do
       table_for gallery do
         column :id
         column :name
+        column :description
       end
     end
     panel "Gallery Images" do
@@ -67,6 +68,7 @@ ActiveAdmin.register Gallery do
   form do |f|
     f.inputs do
       f.input :name
+      f.input :description, :as => :string
     end
     f.inputs "Photos" do
       f.has_many_with_fixes :photos, :allow_destroy => true, :heading => 'Photos', :new_record => true do |photo|
