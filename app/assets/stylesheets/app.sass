@@ -586,8 +586,11 @@ $dis: 128px + 32px
       p:first-child
         margin-top: 0
       
-      a
+      a, a:link, a:active, a:visited, a:hover
         color: $gold
+        text-decoration: none
+      a:hover
+        text-decoration: underline
 
   section#materials
     +row(24)
