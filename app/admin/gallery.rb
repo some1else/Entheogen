@@ -30,6 +30,7 @@ ActiveAdmin.register Gallery do
         column :id
         column :name
         column :description
+        column :position
       end
     end
     panel "Gallery Images" do
@@ -69,6 +70,7 @@ ActiveAdmin.register Gallery do
     f.inputs do
       f.input :name
       f.input :description, :as => :string
+      f.input :position
     end
     f.inputs "Photos" do
       f.has_many_with_fixes :photos, :allow_destroy => true, :heading => 'Photos', :new_record => true do |photo|
