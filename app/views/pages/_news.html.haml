@@ -3,9 +3,12 @@
     %section#news.surfacebox
         %h2 News
 
-        - posts.each do |post|
+        - posts.each_with_index do |post, index|
             - unless post.published_at.nil?
                 .surf
                     %p= raw post.body
                     %p
                         %small= post.published_at.strftime("%A, %B %e. %Y")
+
+                    - unless index == (posts.size - 1)
+                        %p{:style => "margin-bottom: 0;"} --
