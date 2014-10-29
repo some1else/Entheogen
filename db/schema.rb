@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028175942) do
+ActiveRecord::Schema.define(version: 20141029183320) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -79,13 +79,8 @@ ActiveRecord::Schema.define(version: 20141028175942) do
 
   add_index "events", ["gallery_id"], name: "index_events_on_gallery_id"
 
-  create_table "galleries", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "position"
-    t.text     "description"
-  end
+# Could not dump table "galleries" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "photos", force: true do |t|
     t.string   "image"
