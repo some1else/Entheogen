@@ -79,8 +79,13 @@ ActiveRecord::Schema.define(version: 20141029183320) do
 
   add_index "events", ["gallery_id"], name: "index_events_on_gallery_id"
 
-# Could not dump table "galleries" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "galleries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "position"
+  end
 
   create_table "photos", force: true do |t|
     t.string   "image"
